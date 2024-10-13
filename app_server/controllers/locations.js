@@ -39,11 +39,12 @@ const locationInfo = async (req, res) => {
   }
 };
 
-// Add Review Page
-const addReview = (req, res) => {
+// Add Review Form Page (GET Request)
+const addReview = async (req, res) => {
   const locationName = req.params.name.replace(/-/g, ' '); // Get the location name from the URL
-  Location.findOne({ name: new RegExp(`^${locationName}$`, 'i') }, (err, location) => { // Find location by name
-    if (err || !location) {
+  try {
+    const location = await Location.findOne({ name: new RegExp(`^${locationName}$`, 'i') }); // Find location by name
+    if (!location) {
       return res.status(404).send('Location not found'); // Handle location not found
     }
 
@@ -53,12 +54,45 @@ const addReview = (req, res) => {
       pageHeader: { title: `Review ${location.name}` },
       location: location // Pass the location to the view for context
     });
-  });
+  } catch (err) {
+    res.status(500).send('Error retrieving location'); // Handle errors during location retrieval
+  }
 };
 
-// Exporting all the controller functions
+// Handle Review Submission (POST Request)
+const doAddReview = async (req, res) => {
+  const locationName = req.params.name.replace(/-/g, ' ');
+  try {
+    const location = await Location.findOne({ name: new RegExp(`^${locationName}$`, 'i') });
+
+    if (!location) {
+      return res.status(404).send('Location not found');
+    }
+
+    // Create new review object
+    const newReview = {
+      author: req.body.name,
+      rating: parseInt(req.body.rating, 10),
+      timestamp: new Date(),
+      reviewText: req.body.review
+    };
+
+    // Add the new review to the location's reviews array
+    location.reviews.push(newReview);
+
+    // Save the updated location document to MongoDB
+    await location.save();
+
+    // Redirect back to the location info page
+    res.redirect(`/location/${req.params.name}`);
+  } catch (err) {
+    res.status(500).send('Error adding review');
+  }
+};
+
 module.exports = {
   homelist,
   locationInfo,
-  addReview
+  addReview,
+  doAddReview // Export the new function
 };

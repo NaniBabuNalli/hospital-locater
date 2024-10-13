@@ -43,7 +43,7 @@ block content
     .col-12
       .card.card-primary.review-card
         .card-body
-          a.btn.btn-primary.float-right(href='/location/review/new') Add review
+          a.btn.btn-primary.float-right(href=`/location/${location.name.replace(/\s/g, '-')}/review/new`) Add review
           h2.card-title Customer reviews
           each review in location.reviews
             .row.review
@@ -55,5 +55,5 @@ block content
               .col-12
                 p !{(review.reviewText).replace(/\n/g, '<br/>')}
     .col-12.col-lg-3
-      p.lead #{location.name} #{sidebar.context}
+      p.lead #{sidebar.context}
       p= sidebar.callToAction
