@@ -5,10 +5,10 @@ const homelist = async (req, res) => {
   try {
     const locations = await Location.find(); // No callback, using await
     res.render('locations-list', {
-      title: 'PharmaLoc8r - Find Your Nearest Pharmacy, Anytime, Anywhere',
+      title: 'Online Groceries Store',
       pageHeader: {
-        title: 'PharmaLoc8r',
-        strapline: 'Find Your Nearest Pharmacy, Anytime, Anywhere',
+        title: 'Online Groceries Store',
+        strapline: 'Hunt your grocery needs!',
       },
       sidebar: "Searching for a pharmacy with great facilities? Our Pharmacy Locator helps you find the best spots for all your pharmaceutical needs...",
       locations: locations // Use data from MongoDB
@@ -29,7 +29,7 @@ const locationInfo = async (req, res) => {
       title: location.name,
       pageHeader: { title: location.name },
       sidebar: {
-        context: `${location.name} is featured on Pharmacy Locator because it offers excellent healthcare services and customer care.`,
+        context: `is part of Onile Groceries because it offers a variety of products including grocery essentials.`,
         callToAction: `To Contact Us:\nGmail: ${location.gmail}\nPhone: ${location.phno}`
       },
       location: location

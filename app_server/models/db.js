@@ -39,8 +39,8 @@
 // });
 
 const mongoose = require('mongoose');
-const dbURI = 'mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/Pharma-locater';
-//const dbURI = 'mongodb://localhost/pharma-locator'; // Your MongoDB connection URI
+//const dbURI = 'mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/Pharma-locater';
+const dbURI = 'mongodb://localhost:27017/grocery'; // Your MongoDB connection URI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on('connected', () => {
