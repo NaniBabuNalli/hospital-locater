@@ -185,7 +185,7 @@ const locations = [
   ]
   
   
-mongoose.connect('mongodb://localhost/pharma-locator', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/Pharma-locater', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
     return Location.insertMany(locations);
