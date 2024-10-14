@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-//const dbURI = 'mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/grocery';
-const dbURI = 'mongodb://localhost:27017/hms'; // Your MongoDB connection URI
+const dbURI = 'mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/hms';
+//const dbURI = 'mongodb://localhost:27017/hms'; // Your MongoDB connection URI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on('connected', () => {
