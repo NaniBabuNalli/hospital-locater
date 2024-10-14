@@ -2,112 +2,99 @@ const mongoose = require('mongoose');
 const Location = require('./app_server/models/location'); // Path to your model
 const locations = [
   {
-    name: 'FreshMart',
-    address: '123 Greenway Ave, Hyderabad, Telangana 500001',
-    rating: 4,
-    facilities: ['Fresh Produce', 'Bakery', 'Dairy'],
-    coords: { lat: 51.455041, lng: -0.9690884 },
-    openingTimes: [
-      { days: 'Monday - Sunday', opening: '7:00am', closing: '10:00pm', closed: false }
-    ],
-    reviews: [
-      { author: 'Aisha Khan', rating: 5, timestamp: '2023-07-16', reviewText: 'Great selection of fresh fruits and vegetables!' },
-      { author: 'Raj Patel', rating: 4, timestamp: '2023-06-16', reviewText: 'Nice store, but can get crowded during weekends.' }
-    ],
-    imageSrc : 'https://th.bing.com/th/id/OIP.lwFpB6gv7QGjjUg1yC6jBQHaEK?w=275&h=180&c=7&r=0&o=5&dpr=2&pid=1.7',
-    gmail: 'freshmart@example.com',
-    phno: '9876543210'
-  },
-  {
-    name: 'Daily Essentials Store',
-    address: '45 Market St, Hyderabad, Telangana 500002',
-    rating: 4,
-    facilities: ['Grocery Staples', 'Snacks', 'Beverages'],
-    coords: { lat: 51.456042, lng: -0.970088 },
-    openingTimes: [
-      { days: 'Monday - Sunday', opening: '6:00am', closing: '11:00pm', closed: false }
-    ],
-    reviews: [
-      { author: 'Sonia Mehta', rating: 4, timestamp: '2023-07-20', reviewText: 'Convenient place for quick shopping!' },
-      { author: 'Vikram Rao', rating: 3, timestamp: '2023-06-25', reviewText: 'Good variety, but prices can be higher than expected.' }
-    ],
-    imageSrc : 'https://th.bing.com/th/id/OIP.2iM0emFn0WhZGn9vzbUoRQHaFz?w=246&h=193&c=7&r=0&o=5&dpr=2&pid=1.7',
-    gmail: 'dailyessentials@example.com',
-    phno: '9123456780'
-  },
-  {
-    name: 'Healthy Foods Market',
-    address: '78 Organic Lane, Hyderabad, Telangana 500003',
-    rating: 5,
-    facilities: ['Organic Products', 'Health Foods', 'Vegan Options'],
-    coords: { lat: 51.457042, lng: -0.971088 },
-    openingTimes: [
-      { days: 'Monday - Sunday', opening: '7:00am', closing: '9:00pm', closed: false }
-    ],
-    reviews: [
-      { author: 'Suresh Gupta', rating: 5, timestamp: '2023-08-10', reviewText: 'Best place for organic food lovers!' },
-      { author: 'Priya Singh', rating: 4, timestamp: '2023-08-15', reviewText: 'Quality products but a bit pricey.' }
-    ],
-    imageSrc : 'https://patch.com/img/cdn/users/869885/2011/10/raw/3ccc97313c24a6c529361e7a5f9777f8.jpg',
-    gmail: 'healthyfoods@example.com',
-    phno: '8765432109'
-  },
-  {
-    name: 'Local Grocery Stop',
-    address: '200 City Center Rd, Hyderabad, Telangana 500004',
+    name: 'City Health Hospital',
+    address: '4-106/C, Annojiguda, Hyderabad, Telangana 501301',
     rating: 3,
-    facilities: ['General Groceries', 'Household Items', 'Personal Care'],
-    coords: { lat: 51.458042, lng: -0.972088 },
-    openingTimes: [
-      { days: 'Monday - Sunday', opening: '8:00am', closing: '10:00pm', closed: false }
-    ],
-    reviews: [
-      { author: 'Arjun Verma', rating: 3, timestamp: '2023-09-10', reviewText: 'Average store with decent options.' },
-      { author: 'Neha Reddy', rating: 2, timestamp: '2023-09-12', reviewText: 'Limited variety and stock issues sometimes.' }
-    ],
-    imageSrc : 'https://www.alamy.com/aggregator-api/download?url=https://c8.alamy.com/comp/B5CXPJ/indian-village-shop-in-puttaparthi-india-B5CXPJ.jpg',
-    gmail: 'localgrocery@example.com',
-    phno: '7654321098'
-  },
-  {
-    name: 'Veggie Delight',
-    address: '34 Greenfield Blvd, Hyderabad, Telangana 500005',
-    rating: 5,
-    facilities: ['Vegetarian Products', 'Organic Produce', 'Local Goods'],
-    coords: { lat: 51.459042, lng: -0.973088 },
-    openingTimes: [
-      { days: 'Monday - Saturday', opening: '7:00am', closing: '9:00pm', closed: false },
-      { days: 'Sunday', opening: '8:00am', closing: '8:00pm', closed: false }
-    ],
-    reviews: [
-      { author: 'Meera Sharma', rating: 5, timestamp: '2023-09-15', reviewText: 'Excellent variety of vegetarian options!' },
-      { author: 'Nitin Kumar', rating: 4, timestamp: '2023-09-20', reviewText: 'Love the organic section and fresh local produce.' }
-    ],
-    imageSrc : 'https://static.bangkokpost.com/media/content/20171110/2535363.jpg',
-    gmail: 'veggiedelight@example.com',
-    phno: '8765432100'
-  },
-  {
-    name: 'Tesco Express',
-    address: '99 Quick Lane, Hyderabad, Telangana 500006',
-    rating: 4,
-    facilities: ['Fast Checkout', 'Delivery Service', 'Self-Service Kiosks'],
-    coords: { lat: 51.460042, lng: -0.974088 },
+    facilities: ['Emergency care', 'Surgery', 'Pharmacy'],
+    coords: { lat: 51.455041, lng: -0.9690884 },
     openingTimes: [
       { days: 'Monday - Sunday', opening: '24/7', closed: false }
     ],
+    imageSrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNUW5UiS-v8sda36VVD0u4IuFGiITezljsMg&s',
     reviews: [
-      { author: 'Rahul Desai', rating: 4, timestamp: '2023-10-01', reviewText: 'Great for late-night shopping and quick pickups.' },
-      { author: 'Anjali Verma', rating: 5, timestamp: '2023-10-05', reviewText: 'Fast service and a good selection of products.' }
+      { author: 'Nani Nalli', rating: 5, timestamp: '2013-07-16', reviewText: 'I recently visited City Health Hospital and had a largely positive experience. The hospital was clean and well-organized.' },
+      { author: 'Bala Subhramanyam', rating: 3, timestamp: '2013-06-16', reviewText: 'Convenient location, but the waiting time was a bit long.' }
+    ]
+  },
+  {
+    name: 'Metro Medical Centre',
+    address: '3-99/1, Chengicherla Road, Beside Mahadev Jewellers, Chengicherla, Hyderabad, Telangana 500092',
+    rating: 4,
+    facilities: ['Outpatient services', 'Diagnostics', 'Immunizations'],
+    coords: { lat: 51.456042, lng: -0.970088 },
+    openingTimes: [
+      { days: 'Monday - Sunday', opening: '24/7', closed: false }
     ],
-    imageSrc : 'https://c8.alamy.com/comp/BXBNBB/store-of-the-supermarket-chain-tesco-tesco-express-london-england-BXBNBB.jpg',
-    gmail: 'supermartexpress@example.com',
-    phno: '9998765432'
+    imageSrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT88AMyEnjMHycJ8c3ulNKUWkwJlxgBzBHiNg&s',
+    reviews: [
+      { author: 'Shreyansh', rating: 4, timestamp: '2013-07-20', reviewText: 'Great services and quick response times!' },
+      { author: 'Mouli', rating: 2, timestamp: '2013-06-25', reviewText: 'Good hospital, but sometimes feels understaffed during peak hours.' }
+    ]
+  },
+  {
+    name: 'HealthFirst Hospital',
+    address: 'Kamala Nagar Main Rd, Vikarabad, Telangana',
+    rating: 5,
+    facilities: ['Emergency care', 'Vaccination services', 'Health screenings'],
+    coords: { lat: 51.457042, lng: -0.971088 },
+    openingTimes: [
+      { days: 'Monday - Sunday', opening: '24/7', closed: false }
+    ],
+    imageSrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_Ds32x9Y2tAWeur8i422IlgskLJjUhxMoxQ&s',
+    reviews: [
+      { author: 'Srinivas', rating: 5, timestamp: '2013-08-10', reviewText: 'A great hospital with professional staff.' },
+      { author: 'Karthikeya', rating: 4, timestamp: '2013-08-15', reviewText: 'Quick service and reasonable prices for treatments.' }
+    ]
+  },
+  {
+    name: 'CarePlus Hospital',
+    address: '162, Korremula Road, OU Colony, Chowdhariguda, Hyderabad, Telangana 500088',
+    rating: 4,
+    facilities: ['Chronic disease management', 'Surgery', 'Medical equipment rental'],
+    coords: { lat: 51.458042, lng: -0.972088 },
+    openingTimes: [
+      { days: 'Monday - Sunday', opening: '24/7', closed: false }
+    ],
+    imageSrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdTGovjxaZWbC0G7NXQ8hl379ec_rYuDQwNA&s',
+    reviews: [
+      { author: 'Pranay Reddy', rating: 4, timestamp: '2013-09-12', reviewText: 'Nice and clean hospital. The staff is very polite.' },
+      { author: 'Koushik Reddy', rating: 3, timestamp: '2013-09-18', reviewText: 'Good healthcare options, but a bit crowded.' }
+    ]
+  },
+  {
+    name: 'PrimeCare Hospital',
+    address: 'Door No 5/123/1, Shop No 2, Boduppal Rd, Peerzadiguda, Buddha Nagar, Hyderabad, Telangana 500039',
+    rating: 3,
+    facilities: ['Emergency services', 'Medication therapy management', 'Patient transfers'],
+    coords: { lat: 51.459042, lng: -0.973088 },
+    openingTimes: [
+      { days: 'Monday - Sunday', opening: '24/7', closed: false }
+    ],
+    imageSrc : 'https://images1-fabric.practo.com/practices/1138452/primecare-hospital-bangalore-5a30d6a8801a6.jpg',
+    reviews: [
+      { author: 'Akash', rating: 3, timestamp: '2013-10-20', reviewText: 'The staff is very knowledgeable and caring.' },
+      { author: 'Tej', rating: 4, timestamp: '2013-10-25', reviewText: 'Good prices on treatments. Sometimes they run out of stock on popular items.' }
+    ]
+  },
+  {
+    name: 'Community Care Hospital',
+    address: 'D.No.1 and 2, Nadergul X Roads, Village, Nadargul, Telangana',
+    rating: 5,
+    facilities: ['Travel vaccinations', 'Health consultations', 'Compounding services'],
+    coords: { lat: 51.461042, lng: -0.975088 },
+    openingTimes: [
+      { days: 'Monday - Sunday', opening: '24/7', closed: false }
+    ],
+    imageSrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKpl9NXT2DwDO9KfNxjlxTW8bOA47irsMJ0A&s',
+    reviews: [
+      { author: 'Harsha', rating: 5, timestamp: '2013-12-02', reviewText: 'Great experience! The hospital is modern and well-equipped.' },
+      { author: 'Shannu', rating: 4, timestamp: '2013-12-10', reviewText: 'I trust this hospital for all my health needs.' }
+    ]
   }
 ];
 
   
-mongoose.connect('mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/grocery', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/hms', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
     return Location.insertMany(locations);

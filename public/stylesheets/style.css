@@ -1,37 +1,41 @@
-@import url("//fonts.googleapis.com/css?family=Pacifico|Great+Vibes|Alex+Brush|Carolyna+Pro|Dancing+Script|Lobster+Two|Playball|Reenie+Beanie|Amoresa+Aged");
-@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script:wght@400..700&display=swap');
 
-h1 {
-  font-family: 'Lobster';
-  font-weight: 0;
-  font-size: 2.5rem;
-  font-style: italic;
-  color: #ffffff;
-}
-
-h2, h3, h4, h5, h6 {
-  font-family: 'Lobster', cursive;
-  color: #dfe4ed;
-}
-
-.text-muted {
-  font-family: 'Lobster', cursive;
-  font-size: 1.2rem;
-  color: #d8c5c5 !important;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
 }
 
 legend {
-  font-family: 'Amoresa', cursive;
+  font-family: 'Lobster', cursive;
 }
 
 .navbar {
-  background-color: #dfe4ed;
-  border-color: #ececf1;
+  background-color: #f0f8ff; /* Light blue background */
+  border: rgba(70, 130, 180, 0.911) solid 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.navbar-light .navbar-brand {
-  font-family: 'Alex Brush';
-  color: #320439;
+.navbar:hover {
+  background-color: #e0f7fa; /* Slightly darker on hover */
+}
+
+.navbar-brand {
+  font-family: "Abril Fatface", serif;
+  color: rgb(70, 130, 180); /* Steel blue */
+  font-size: 30px;
+  padding-bottom: 0px;
+  font-weight: bolder;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: rgb(25, 173, 227); /* Lighter blue */
+}
+
+.navbar-light {
+  font-family: 'Lobster', cursive;
+  color: rgb(70, 130, 180);
 }
 
 .navbar-light .navbar-toggler {
@@ -40,37 +44,53 @@ legend {
 }
 
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svgxml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-light .navbar-nav .nav-link,
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: rgba(207, 24, 24);
+  color: rgb(70, 130, 180);
+  transition: color 0.3s ease;
 }
 
 .card {
-  background-color: #7fc988;
+  background-color: #e8f5e9; /* Light green for card background */
   padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-primary {
-  border-color: #a2ced3;
+  border-color: #90CAF9;
   margin-bottom: 0.5rem;
 }
 
 .banner {
   margin-top: 4em;
-  border-bottom: 1px solid #469ea8;
+  border-bottom: 1px solid #90CAF9;
   margin-bottom: 1.5em;
   padding-bottom: 0.5em;
 }
 
 .review-header {
-  background-color: #378ad2;
+  background-color: #64B5F6; /* Medium blue for the review header */
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.review-header:hover {
+  background-color: #42a5f5; /* Darker on hover */
 }
 
 .review {
@@ -80,18 +100,24 @@ legend {
 }
 
 .badge-default, .btn-primary {
-  background-color: #ad1d28;
-  border-color: #000000;
+  background-color: #007BFF; /* Blue to match the navbar */
+  border-color: #0056b3;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.badge-default:hover, .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #003f7f;
 }
 
 h4 a, h4 a:hover {
-  color: #dbd9d9;
+  color: #1472df;
 }
 
 h4 small {
   font-size: 60%;
   line-height: 200%;
-  color: #f5ecec;
+  color: #aaa;
 }
 
 h1 small {
@@ -111,15 +137,73 @@ p {
 }
 
 a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 123, 255, 0.8); /* Blue color for links */
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #fff;
+  color: #007BFF;
 }
 
 body {
-  font-family: "Times New Roman", Arial, sans-serif;
-  color: #fff;
-  background-color: #470757;
+  font-family: "Cabin", Arial, sans-serif;
+  color: #000;
+  background-color: #f0f0f0; /* Light grey background */
+  background-image: linear-gradient(160deg, #f0f0f0 0%, #e0f7fa 100%);
+  height: auto; /* Allow the height to be determined by content */
+}
+
+
+.small {
+  font-family: "Exo 2", sans-serif;
+  font-size: large;
+}
+
+.locName {
+  color: black;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.col-form-label {
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.badge-warning {
+  color: black;
+}
+
+.tagline {
+  font-family: "Dancing Script", cursive;
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.revcontainer {
+  width: 900px;
+  margin: 20px auto; /* Centered */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: rgb(250, 250, 225); /* Light yellow */
+}
+
+.revcontainer:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.revhead {
+  color: #64B5F6;
+  text-align: center;
+  text-decoration: none;
+}
+
+.revmsg {
+  padding-top: 5px;
 }

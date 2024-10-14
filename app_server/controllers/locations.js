@@ -5,12 +5,12 @@ const homelist = async (req, res) => {
   try {
     const locations = await Location.find(); // No callback, using await
     res.render('locations-list', {
-      title: 'Online Groceries Store',
+      title: 'Hospital Locater',
       pageHeader: {
-        title: 'Online Groceries Store',
-        strapline: 'Hunt your grocery needs!',
+        title: 'Hospital Locater',
+        strapline: 'Find best Hospitals near You!',
       },
-      sidebar: "Searching for a grocery store with great facilities? Our Grocery Locator helps you find the best spots for all your grocery needs...",
+      sidebar: "Searching for a hospital with great facilities? Our Hospital Locator helps you find the best spots for all your medical needs...",
       locations: locations // Use data from MongoDB
     });
   } catch (err) {
