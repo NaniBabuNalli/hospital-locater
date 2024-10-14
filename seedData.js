@@ -107,7 +107,7 @@ const locations = [
 ];
 
   
-mongoose.connect('mongodb://localhost:27017/grocery', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://nanibabunalli:123456au@cluster0.yzl5k.mongodb.net/grocery', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
     return Location.insertMany(locations);

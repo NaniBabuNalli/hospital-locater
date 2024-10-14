@@ -10,7 +10,7 @@ const homelist = async (req, res) => {
         title: 'Online Groceries Store',
         strapline: 'Hunt your grocery needs!',
       },
-      sidebar: "Searching for a pharmacy with great facilities? Our Pharmacy Locator helps you find the best spots for all your pharmaceutical needs...",
+      sidebar: "Searching for a grocery store with great facilities? Our Grocery Locator helps you find the best spots for all your grocery needs...",
       locations: locations // Use data from MongoDB
     });
   } catch (err) {
